@@ -9,26 +9,33 @@
   </head>
   <body>
     <!-- MAIN CONTENT -->
-    <div class="main">
+    <div class="wrap">
       <!-- LEFT SIDE -->
       <div class="left">
+        <div class="logo" role="img" aria-label="Odin logo">
+	  <img src="./img/odin-lined.png" alt="Odin logo"/>
+	  <div class="word">ODIN</div>
+        </div>
       </div>
 
       <!-- RIGHT SIDE -->
       <div class="right">
 	<!-- HERO -->
 	<div class="hero">
-	  <h1></h1>
-	  <p></p>
-	  <p></p>
-	</div>
+          <!-- TEXT -->
+          <div class="hero">
+            <h1>This is not a real online service! You know you need something
+            like this in your life to help you realize your deepest dreams.</h1>
+            <p class="muted">Sign up <em>now</em> to get started.</p>
+            <p class="small muted">You <em>know</em> you want to.</p>
+          </div>
 	<!-- FORM ELEMENT -->
-	<div class="card">
+	<div class="card" role="region" aria-label="signup form">
 	  <!-- TITLE -->
 	  <h2>Let's do this!</h2>
 	  <!-- USER SUBMISSION -->
-	  <form>
-	    <div>
+	  <form id="signup" novalidate>
+	    <div class="grid">
 	      <!-- FIRST NAME -->
 	      <div>
 	        <label for="first">FIRST NAME</label>
@@ -54,22 +61,24 @@
               </div>
 
               <!-- PASSWORD -->
-              <div>
+              <div class="has-error">
                 <label for="pwd">PASSWORD</label>
-                <input type="password" id="pwd" name="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain: at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character"/>
+                <input type="password" id="pwd" name="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain: at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character" required minlength="8"/>
               </div>
 
               <!-- CONFIRM PASSWORD -->
-              <div>
+              <div class="has-error">
                 <label for="pwd2">CONFIRM PASSWORD</label>
-                <input type="password" id="pwd2" name="pwd2" title="Please re-enter your password to confirm"/>
+                <input type="password" id="pwd2" name="pwd2" title="Please re-enter your password to confirm" required minlength="8"/>
               </div>
 	     
 	      <!-- USER INTERACTION -->
-	      <div>
-		<div>
-		  <div><button type="button">Create Account</button></div>
-		  <div>Already have an account? <a href="#">Log in</a></div>
+	      <div class="full-row">
+		<div class="row-between">
+		  <div class="actions">
+		    <button type="button">Create Account</button>
+		  </div>
+		  <div class="small-link muted">Already have an account? <a href="#">Log in</a></div>
 		</div>
 	      </div>
 
