@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'Norse-Bold';
+  src: url('./fonts/Norse-Bold/Norse-Bold.woff2') format('woff2');
+       url('./fonts/Norse-Bold/Norse-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;  
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent-green: #596D48;   /* button color you specified */
+  --muted: #6b7280;
+  --input-border: #E5E7EB;
+  --error: #c0392b;
+  --focus-blue: #2563eb;
+}
+
+html,body{height:100%;margin:0;font-family: "Helvetica Neue", Arial, sans-serif;background:var(--page-bg);color:#111;}
+
+.wrap{display:flex;height:100vh;box-sizing:border-box;align-items:stretch;}
+
+/* left panel must be positioned relative so the absolute overlay can stretch */
+.left {
+  position: relative;
+  background-image: url('./img/halie-west.jpg');
+  background-size: cover;
+  background-position: center;
+  min-width: 360px;
+  padding: 48px 32px; /* keep some padding for top/space under overlay */
+}
+/* full-width dark bar behind the logo */
+.logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 32px;                 /* distance from top of left panel */
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* center content horizontally */
+  gap: 18px;
+  padding: 18px 36px;        /* vertical/horizontal padding for the bar */
+  background: rgba(0,0,0,0.45); /* semi-transparent dark */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  backdrop-filter: blur(2px); /* subtle blur behind bar (optional) */
+  z-index: 5;
+  /* optional: keep bar from touching extreme edges on small widths */
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 20%;
+  height: auto;
+}
+
+/* wordmark */
+.word {
+  font-family: 'Norse-Bold', 'Montserrat', sans-serif; /* replace with your chosen font */
+  color: #fff;
+  font-weight: 700;
+  font-size: 60px;
+  letter-spacing: 3px;
+  line-height: 1;
+  padding-top: 10px;
+}
