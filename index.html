@@ -1,91 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Odin Sign Up</title>
+    <title>Odin Sign Up Form</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Odin Sign Up Form" />
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="wrap">
+    <!-- CONTAINER -->
+    <div class="container">
+      <!-- LEFT -->
       <div class="left">
-	<div class="logo" role="img" aria-label="Odin logo">
-	  <!-- Simple placeholder geometric wolf/mascot svg -->
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-linejoin="round" $
-            <path d="M30 60 L55 40 L80 60 L100 40 L120 60 L145 40 L170 60 L150 115 L100 170 L50 115 Z" />
-            <circle cx="80" cy="90" r="6" fill="white" stroke="none"></circle>
-            <circle cx="120" cy="90" r="6" fill="white" stroke="none"></circle>
-          </svg>
-	  <div class="word">ODIN</div>
+	<!-- BACKGROUND -->
+	<div class="background">
+	  <img src="./img/odin-lined.png" alt="Odin Logo"/>
+	  <p class="logo">ODIN</p>
 	</div>
       </div>
 
-      <!-- RIGHT SIDE -->
+      <!-- RIGHT -->
       <div class="right">
         <!-- TEXT -->
-        <div class="hero">
-          <h1>This is not a real online service! You know you need something
-          like this in your life to help you realize your deepest dreams.</h1>
-          <p class="muted">Sign up <em>now</em> to get started.</p>
-          <p class="small muted">You <em>know</em> you want to.</p>
+        <div class="text">
+          <p>This is not a real online service! You know you need something like this in
+          your life to help you realize your deepest dreams.</p>
+          <p>Sign up <em>now</em> to get started.</p>
+          <p>You <em>know</em> you want to.</p>
         </div>
 
+        <!-- FORM -->
         <div class="card" role="region" aria-label="signup form">
-          <!-- FORM ELEMENT / GRID -->
-	  <h2>Let's do this!</h2>
-          <form id="signup" novalidate>
-            <div class="grid">
-	      <!-- FIRST NAME -->
+          <h3>Let's do this!</h3>
+          <form id="signup-form">
+            <div class="grid">	      
+              <!-- FIRST NAME -->
               <div>
                 <label for="first">FIRST NAME</label>
-	        <input type="text" placeholder="Thor" value="Thor" id="first">
-	      </div>
+                <input type="text" id="first" name="first" required/>
+              </div>
 
               <!-- LAST NAME -->
               <div>
                 <label for="last">LAST NAME</label>
-                <input type="text" placeholder="Odinson" value="Odinson" id="last">
+                <input type="text" id="last" name="last" required/>
               </div>
 
               <!-- EMAIL -->
               <div>
                 <label for="email">EMAIL</label>
-                <input type="email" placeholder="you@example.com" id="email">
+                <input type="email" id="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address (e.g.: user@example.com)" required/>
               </div>
 
               <!-- PHONE NUMBER -->
               <div>
-                <label for="phone_number">PHONE NUMBER</label>
-                <input type="tel" placeholder="(555) 555-5555" id="phone_number">
+                <label for="phone">PHONE NUMBER</label>
+                <input type="tel" id="phone" name="phone" pattern="[\+]?[0-9\s\-\(\)]{10,}" title="Please enter a valid phone number (e.g.: 555-123-4567 or +1 (555) 123-4567)" required/>
               </div>
 
               <!-- PASSWORD -->
               <div class="has-error">
-                <label for="pw">PASSWORD</label>
-                <input type="password" placeholder="Create Password" id="pw">
+                <label for="pwd">PASSWORD</label>
+                <input type="password" id="pwd" name="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain: at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character" required/>
               </div>
 
-              <!-- CONFIRM PASSWORD-->
+              <!-- CONFIRM PASSWORD -->
               <div class="has-error">
-                <label for="pw2">CONFIRM PASSWORD</label>
-                <input type="password" placeholder="Confirm password" id="pw2">
-	      </div>
-
-	      <div>
-                <div class="row-between" style="align-items:center">
-	          <div class="actions">
-		    <button class="btn" type="button" id="create">Create Account</button>
-		  </div>
-		  <div class="small-link muted">Already have an account? <a href="#">Log in</a></div>
-	        </div>
-	      </div>
-
+                <label for="pwd2">CONFIRM PASSWORD</label>
+                <input type="password" id="pwd2" name="pwd2" title="Please re-enter your password to confirm" required minlength="8"/>
+              </div>
             </div>
           </form>
-        </div>
+	</div>
 
+        <!-- SUBMISSION - MOVED INSIDE FORM -->
+        <div class="submission">
+          <button type="submit">Create Account</button>
+          <p>Already have an account? <a href="#">Log in</a></p>
+        </div>
       </div>
     </div>
+    
+    <script>
+      // Password confirmation validation
+      document.getElementById('signup-form').addEventListener('submit', function(e) {
+        const password = document.getElementById('pwd').value;
+        const confirmPassword = document.getElementById('pwd2').value;
+        
+        if (password !== confirmPassword) {
+          e.preventDefault();
+          alert('Passwords do not match!');
+          document.getElementById('pwd2').focus();
+        }
+      });
+    </script>
   </body>
 </html>

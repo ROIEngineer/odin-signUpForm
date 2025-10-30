@@ -3,7 +3,7 @@
   src: url('./fonts/Norse-Bold/Norse-Bold.woff2') format('woff2');
        url('./fonts/Norse-Bold/Norse-Bold.woff') format('woff');
   font-weight: bold;
-  font-style: normal;  
+  font-style: normal;
   font-display: swap;
 }
 
@@ -15,58 +15,156 @@
   box-sizing: border-box;
 }
 
-:root {
-  --accent-green: #596D48;   /* button color you specified */
-  --muted: #6b7280;
-  --input-border: #E5E7EB;
-  --error: #c0392b;
-  --focus-blue: #2563eb;
+html, body {
+  font-family: 'Arial', sans-serif, system-ui;
+  height: 100%;
 }
 
-html,body{height:100%;margin:0;font-family: "Helvetica Neue", Arial, sans-serif;background:var(--page-bg);color:#111;}
+.container {
+  display: flex;
+  height: 100vh;
+}
 
-.wrap{display:flex;height:100vh;box-sizing:border-box;align-items:stretch;}
-
-/* left panel must be positioned relative so the absolute overlay can stretch */
+/* LEFT SECTION */
 .left {
-  position: relative;
+  flex: 0 0 30%;
   background-image: url('./img/halie-west.jpg');
   background-size: cover;
   background-position: center;
-  min-width: 360px;
-  padding: 48px 32px; /* keep some padding for top/space under overlay */
+  position: relative;
 }
-/* full-width dark bar behind the logo */
-.logo {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 32px;                 /* distance from top of left panel */
+
+.background {
+  position: relative;
+  top: 64px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;   /* center content horizontally */
-  gap: 18px;
-  padding: 18px 36px;        /* vertical/horizontal padding for the bar */
-  background: rgba(0,0,0,0.45); /* semi-transparent dark */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  backdrop-filter: blur(2px); /* subtle blur behind bar (optional) */
-  z-index: 5;
-  /* optional: keep bar from touching extreme edges on small widths */
-  box-sizing: border-box;
+  gap: 5px;
+  padding: 36px 45px;
+  background: rgba(0,0,0,0.45);
 }
 
 img {
-  max-width: 20%;
+  width: 5em;
   height: auto;
 }
 
-/* wordmark */
-.word {
-  font-family: 'Norse-Bold', 'Montserrat', sans-serif; /* replace with your chosen font */
-  color: #fff;
-  font-weight: 700;
-  font-size: 60px;
-  letter-spacing: 3px;
-  line-height: 1;
-  padding-top: 10px;
+.logo {
+  font-family: 'Norse-Bold', 'Arial', sans-serif, system-ui;
+  font-size: 5em;
+  color: white;
+  padding-top: 20px;
+}
+
+/* RIGHT SECTION */
+.right {
+  flex: 0 0 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f9f9f9;
+}
+
+/* TEXT SECTION */
+.text {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 30px;
+  box-sizing: border-box;
+  max-width: 800px;
+}
+
+.text p:nth-of-type(3) {
+  margin-top: 20px;
+}
+
+/* CARD SECTION */
+.card {
+  width: 100%;
+  padding: 30px; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  background: white;
+}
+
+.card h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* FORM GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+.has-error input {
+  border-color: #e74c3c;
+}
+
+/* SUBMISSION SECTION */
+.submission {
+  padding: 0 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #596D48;
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #4a5a3a;
+}
+
+.submission p {
+  font-size: 0.9rem;
+}
+
+.submission a {
+  color: #596D48;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.submission a:hover {
+  text-decoration: underline;
 }
